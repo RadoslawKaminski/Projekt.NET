@@ -1,8 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Projekt.NET.Models
 {
     public class Emails
     {
-			public int EmailId { get; set; }
-			public string Email { get; set; }
+		public int EmailsId { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }
