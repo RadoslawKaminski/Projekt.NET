@@ -97,8 +97,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Acc.cs" />
     <Compile Include="Models\Emails.cs" />
-    <Compile Include="Models\FakeUser.cs" />
     <Compile Include="Models\FamilyPerson.cs" />
     <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Friend.cs" />

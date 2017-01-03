@@ -1,10 +1,9 @@
-using Projekt.NET.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Projekt.NET.Models
 {
-    public class FakeUser
+    public class User
     {
 			public int UserId { get; set; }
 			public string Username { get; set; }
@@ -14,10 +13,9 @@ namespace Projekt.NET.Models
 			//public xxx ProfilePhoto { get; set; }
 			//public xxx BackgroundPhoto { get; set; }
 			List<Emails> Email { get; set; }
-			List<PhoneNumbers> PhonNumber { get; set; }
+			List<PhoneNumbers> PhoneNumber { get; set; }
 			List<Friend> Friend { get; set; }
 			List<Following> Following { get; set; }
 			List<FamilyPerson> FamilyPerson {get; set; }
-			
     }
 }
