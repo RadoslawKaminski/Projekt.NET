@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Projekt.NET.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Projekt.NETWeb.Models
@@ -60,9 +61,8 @@ namespace Projekt.NETWeb.Models
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
     }
-}
 
-public class RegisterViewModel
+    public class RegisterViewModel
     {
         [Required()]
         [Display(Name = "Login*")]
