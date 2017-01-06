@@ -2,8 +2,10 @@ namespace Projekt.NET.Models
 {
     public class Friend
     {
-		public int FriendId { get; set; }
-		public string Username { get; set; }
-        public string AccId { get; set; }
+        public string FriendId { get; set; }
+        public string Username { get; set; }
+
+        public string UserId { get; set; }
+        public User User { get; set; }
     }
 }
