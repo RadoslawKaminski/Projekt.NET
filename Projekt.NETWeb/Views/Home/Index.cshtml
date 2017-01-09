@@ -6,160 +6,137 @@
 
 <head>
 
-<meta charset="utf-8">
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" type="text/css" href="~/Content/style.css">
-   <script type="text/javascript" src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+	<meta charset="utf-8">
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="~/Content/style.css">
+	<script type="text/javascript" src="script.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
 
 </head>
 <body>
+	<nav class="navbar navbar-inverse" style="color: white">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Project Primous</a>
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" style="clear: both" id="nav">
 
-
-
-  
-
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-	
-	
-	<a class = "navbar-brand" href="#">Project Primous</a>
-	
-	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-	
-	
-	</div>
-	    <div class="collapse navbar-collapse" id="nav">
-		
-            <section>
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Login, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                <p>
-                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                </p>*@
-                }
-            </section>
+			<section>
+				@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal hidden-lg hidden-sm hidden-md", role = "form" }))
+				{
+					@Html.AntiForgeryToken()
+					<h2>Log in to Primous</h2>
+					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Username" })
+							@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-10">
+							@Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+							@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<div class="checkbox">
+								@Html.CheckBoxFor(m => m.RememberMe)
+								@Html.LabelFor(m => m.RememberMe)
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<input type="submit" value="Log in" class="btn btn-default" />
+						</div>
+					</div>
+					<p>
+						@Html.ActionLink("Register as a new user", "Register")
+					</p>
+				}
+			</section>
+		</div>
+	</nav>
+	<div id="loginouter" class="hidden-xs">
+		<div id="logininner">
+			<form style="width: 50%; display: inline-block;">
+				<section>
+					@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal hidden-lg hidden-sm hidden-md", role = "form" }))
+					{
+						@Html.AntiForgeryToken()
+						<h2>Log in to Primous</h2>
+						@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+						<div class="form-group">
+							<div class="col-md-10">
+								@Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Username" })
+								@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-10">
+								@Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+								@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-2 col-md-10">
+								<div class="checkbox">
+									<div style=" float:left">
+										@Html.CheckBoxFor(m => m.RememberMe)
+									</div>
+									<div style=" float:left">
+										@Html.LabelFor(m => m.RememberMe)
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-2 col-md-10">
+								<input type="submit" value="Log in" class="btn btn-success" />
+							</div>
+						</div>
+						<p>
+							@Html.ActionLink("Register as a new user", "Account/Register")
+						</p>
+						<p>
+							@Html.ActionLink("Forgot password?", "Account/ForgotPassword")
+						</p>
+					}
+				</section>
+			</form>
+			
 
 		</div>
-	
-	
-	
-	</nav>
-
-<div id ="loginouter" class="hidden-xs">
-
-<div id = "logininner">
-
-	<form style="width: 50%; display: inline-block;">
-  <div class="form-group">
-    </br>
-    <input type="login" class="form-control"placeholder="Login">
-  </div>
-  <div class="form-group">
-    <input type="password" class="form-control" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-success">Sign in</button>
-</form>
-</br>
-
-<a href="#">Forgot password?</a>
-
-</div>
-</div>
+	</div>
 
 
-<div class="container-fluid">
-<div class="row" id="intrheader">
+	<div class="container-fluid">
+		<div class="row" id="intrheader">
 
-Experience true freedom. With Primous.
+			Experience true freedom. With Primous.
+		</div>
 
-  </div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
+				 id="whatis">
 
-  <div class="row">
-  
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
-	  id="whatis">
-
-	  
-
-
-
-
-	  </div>
-  
-  </div>
-
-</div>
-
-
-
-
-
-
-
-
-
+			</div>
+		</div>
+	</div>
 	<!-- jquery-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- bootstrap js -->
-    <script src="~/Scripts/bootstrap.min.js"></script>
-
+	<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
-
-
-
-
-
-
-
-
-
-
 
 </html>
 
 <!--
-
-
-
 </div>
 -->
