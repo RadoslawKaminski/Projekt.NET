@@ -1,103 +1,45 @@
 ﻿@using Projekt.NETWeb.Models
 @model LoginViewModel
+@{
+	Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
 
-
-<html lang="pl">
-
-<head>
-
-	<meta charset="utf-8">
-	<link href="~/Content/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="~/Content/style.css">
-	<script type="text/javascript" src="script.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
-
-</head>
-<body>
-	<nav class="navbar navbar-inverse" style="color: white">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Project Primous</a>
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>
-		<div class="collapse navbar-collapse" style="clear: both" id="nav">
-
+<div id="loginouter">
+	<div id="logininner">
+		<form style="display: inline-block;">
 			<section>
-				@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal hidden-lg hidden-sm hidden-md", role = "form" }))
+				@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 				{
 					@Html.AntiForgeryToken()
 					<h2>Log in to Primous</h2>
 					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-					<div class="form-group">
-						<div class="col-md-10">
-							@Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Username" })
+					<div class="form-group" style="height: 34px">
+						<div id="loginform" class="col-md-10" style="height: 34px">
+							@Html.TextBoxFor(m => m.Login, new { @class = "form-control logintextbox", placeholder = "Username", style = "margin-bottom: 15px" })
 							@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="col-md-10">
-							@Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+					<div class="form-group" style="height: 34px">
+						<div id="loginform" class="col-md-10" style="height: 34px">
+							@Html.PasswordFor(m => m.Password, new { @class = "form-control  logintextbox", placeholder = "Password", style = "margin-bottom: 15px" })
 							@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="col-md-offset-2 col-md-10">
-							<div class="checkbox">
-								@Html.CheckBoxFor(m => m.RememberMe)
-								@Html.LabelFor(m => m.RememberMe)
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-offset-2 col-md-10">
-							<input type="submit" value="Log in" class="btn btn-default" />
-						</div>
-					</div>
-					<p>
-						@Html.ActionLink("Register as a new user", "Register")
-					</p>
-				}
-			</section>
-		</div>
-	</nav>
-	<div id="loginouter" class="hidden-xs">
-		<div id="logininner">
-			<form style="width: 50%; display: inline-block;">
-				<section>
-					@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal hidden-lg hidden-sm hidden-md", role = "form" }))
-					{
-						@Html.AntiForgeryToken()
-						<h2>Log in to Primous</h2>
-						@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-						<div class="form-group">
-							<div class="col-md-10">
-								@Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Username" })
-								@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-md-10">
-								@Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-								@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-md-offset-2 col-md-10">
-								<div class="checkbox">
-									<div style=" float:left">
+						<div class="form-group" style="height: 20px">
+							<div id="loginform" class="col-md-10" style="height: 20px">
+								<div class="checkbox" style="margin-top: 0px; margin-bottom: 0px;">
+									<div style="float:left">
 										@Html.CheckBoxFor(m => m.RememberMe)
 									</div>
-									<div style=" float:left">
+									<div style="float:left">
 										@Html.LabelFor(m => m.RememberMe)
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-md-offset-2 col-md-10">
+						<div class="form-group" style="height: 34px">
+							<div id="loginform" class="col-md-10" style="height: 34px">
+								<input type="button" value="Sign in" class="btn btn-default" />
 								<input type="submit" value="Log in" class="btn btn-success" />
 							</div>
 						</div>
@@ -107,36 +49,27 @@
 						<p>
 							@Html.ActionLink("Forgot password?", "Account/ForgotPassword")
 						</p>
-					}
-				</section>
-			</form>
-			
+				}
+			</section>
+		</form>
+
+
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div class="row" id="intrheader">
+
+		Experience true freedom. With Primous.
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="whatis">
 
 		</div>
 	</div>
-
-
-	<div class="container-fluid">
-		<div class="row" id="intrheader">
-
-			Experience true freedom. With Primous.
-		</div>
-
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
-				 id="whatis">
-
-			</div>
-		</div>
-	</div>
-	<!-- jquery-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- bootstrap js -->
-	<script src="~/Scripts/bootstrap.min.js"></script>
-</body>
-
-</html>
-
+</div>
 <!--
 </div>
 -->
