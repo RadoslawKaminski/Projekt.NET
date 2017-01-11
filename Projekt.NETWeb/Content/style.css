@@ -32,8 +32,8 @@ h2 {
     font-size: 20px;
 }
 
-#loginform {
-    width: 100% !important;
+.loginform {
+    width: 100%;
 }
 
 .logintextbox {
@@ -75,6 +75,11 @@ h2 {
         font-size: 25px;
     }
 
+    .loginform {
+        width: 233.453px !important;
+        margin: auto;
+    }
+
     .navbar-brand {
         font-size: 15px;
     }
@@ -105,26 +110,27 @@ h2 {
     .checkbox {
         color: #333;
     }
+
     .logintextbox {
         background: white;
         border: solid #808080 0.5px;
     }
 
-    .logintextbox::-webkit-input-placeholder {
-        color: #535353;
-    }
+        .logintextbox::-webkit-input-placeholder {
+            color: #535353;
+        }
 
-    .logintextbox:-moz-placeholder {
-        color: #535353;
-    }
+        .logintextbox:-moz-placeholder {
+            color: #535353;
+        }
 
-    .logintextbox::-moz-placeholder {
-        color: #535353;
-    }
+        .logintextbox::-moz-placeholder {
+            color: #535353;
+        }
 
-    .logintextbox:-ms-input-placeholder {
-        color: #535353;
-    }
+        .logintextbox:-ms-input-placeholder {
+            color: #535353;
+        }
 }
 
 #intrheader {

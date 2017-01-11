@@ -27,14 +27,16 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="nav">
 				<ul class="nav navbar-nav navbar-right">
-					<li>@Html.ActionLink("What is Primous?", "Home/WhatIsPrimous")</li>
-					<li>@Html.ActionLink("Support us", "Support/Main")</li>
-					<li>@Html.ActionLink("Browse anonymously", "Home/Anonymous")</li>
+					<li>@Html.ActionLink("What is Primous?", "WhatIsPrimous", "Home")</li>
+					<li>@Html.ActionLink("Support us", "Support", "Home")</li>
+					<li>@Html.ActionLink("Sign in", "Login", "Account")</li>
+					<li>@Html.ActionLink("Browse anonymously", "Anonymous", "Home")</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav>
-	@RenderBody()
+
+		@RenderBody()
 	<hr />
 	<footer>
 		<p>&copy; @DateTime.Now.Year - Primous</p>
