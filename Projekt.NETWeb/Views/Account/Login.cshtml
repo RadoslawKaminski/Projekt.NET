@@ -13,16 +13,16 @@
 					@Html.AntiForgeryToken()
 					<h2>Sign in to Primous</h2>
 					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+					@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
 					<div class="form-group" style="height: 34px">
 						<div class="loginform col-md-10" style="height: 34px">
 							@Html.TextBoxFor(m => m.Login, new { @class = "form-control logintextbox", placeholder = "Username", style = "margin-bottom: 15px" })
-							@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
 						</div>
 					</div>
+					@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 					<div class="form-group" style="height: 34px">
 						<div class="col-md-10 loginform" style="height: 34px">
 							@Html.PasswordFor(m => m.Password, new { @class = "form-control  logintextbox", placeholder = "Password", style = "margin-bottom: 15px" })
-							@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 						</div>
 					</div>
 					<div class="form-group" style="height: 20px">
@@ -39,16 +39,13 @@
 					</div>
 					<div class="form-group" style="height: 34px">
 						<div class="col-md-10 loginform" style="height: 34px">
-							<input type="button" value="Sign up" class="btn btn-default" />
+							@Html.ActionLink("Sign up", "Register", "Account", new { @class = "btn btn-default" })
 							<input type="submit" value="Log in" class="btn btn-success" />
 						</div>
 					</div>
 					<p>
-						@Html.ActionLink("Register as a new user", "Register")
+						@Html.ActionLink("Forgot password?", "ForgotPassword")
 					</p>
-						<p>
-							@Html.ActionLink("Forgot password?", "ForgotPassword")
-						</p>
 				}
 			</section>
 		</form>
@@ -71,3 +68,6 @@
 <!--
 </div>
 -->
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
