@@ -1,7 +1,6 @@
 body {
     margin: 0px;
     padding: 0px;
-    height: 5000px;
     position: relative;
 }
 
@@ -144,16 +143,30 @@ h2 {
     font-family: 'Arima Madurai', cursive;
 }
 
-#whatis {
+#intr1 {
     background-image: url("img/whatisbg.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
-    height: 500px;
-    border-top: 1px white solid;
+    height: 800px;
     text-align: center;
     padding: 30px;
 }
+
+#intr1in{
+    background-color:rgba(49, 49, 49, 0.8) ;
+    color: white;
+    margin-top:100px;;
+    min-height: 250px;;
+  
+}
+
+#intr2in
+{
+    font-size: 13px;
+    background-color:rgba(255, 255, 255, 0.8) ;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -162,10 +175,23 @@ h2 {
         line-height: 150px;
         font-size: 18px;
     }
+
+    #intr1
+    {
+        height: 330px;
+    }
+
 }
 
 @media screen and (max-width: 350px) {
     #intrheader {
         font-size: 13px;
     }
+}
+
+
+
+#wiheader{
+    background-color: red;
+
 }

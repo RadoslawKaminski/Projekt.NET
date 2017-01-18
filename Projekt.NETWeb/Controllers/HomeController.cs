@@ -26,5 +26,11 @@ namespace Projekt.NETWeb.Controllers
 
             return View();
         }
+
+        public ActionResult WhatIsPrimous()
+        {
+            ViewBag.Message = "Learn more about Primous.";
+            return View();
+        }
     }
 }
