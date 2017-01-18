@@ -6,12 +6,11 @@
 }
 <div id="loginouter">
 	<div id="logininner">
-		<form style="display: inline-block;">
-			<section>
-				@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-				{
-					@Html.AntiForgeryToken()
-					<h2>Sign in to Primous</h2>
+		<section style="display: inline-block;">
+			@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+			{
+				@Html.AntiForgeryToken()
+				<h2>Sign in to Primous</h2>
 					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 					@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
 					<div class="form-group" style="height: 34px">
@@ -22,7 +21,7 @@
 					@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 					<div class="form-group" style="height: 34px">
 						<div class="col-md-10 loginform" style="height: 34px">
-							@Html.PasswordFor(m => m.Password, new { @class = "form-control  logintextbox", placeholder = "Password", style = "margin-bottom: 15px" })
+							@Html.PasswordFor(m => m.Password, new { @class = "form-control  logintextbox", placeholder = "Password", style = "margin-bottom: 15px", type = "password" })
 						</div>
 					</div>
 					<div class="form-group" style="height: 20px">
@@ -46,9 +45,8 @@
 					<p>
 						@Html.ActionLink("Forgot password?", "ForgotPassword")
 					</p>
-				}
-			</section>
-		</form>
+			}
+		</section>
 	</div>
 </div>
 

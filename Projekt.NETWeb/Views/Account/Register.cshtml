@@ -6,8 +6,7 @@
 }
 <div id="loginouter">
 	<div id="logininner">
-		<form style="display: inline-block;">
-			<section>
+			<section style="display: inline-block;">
 				@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 				{
 					@Html.AntiForgeryToken()
@@ -22,13 +21,13 @@
 					@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 					<div class="form-group" style="height: 34px">
 						<div class="col-md-10 loginform" style="height: 34px">
-							@Html.TextBoxFor(m => m.Password, new { @class = "form-control logintextbox", placeholder = "Password", style = "margin-bottom: 15px" })
+							@Html.TextBoxFor(m => m.Password, new { @class = "form-control logintextbox", placeholder = "Password", style = "margin-bottom: 15px", type="password" })
 						</div>
 					</div>
 					@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
 					<div class="form-group" style="height: 34px">
 						<div class="col-md-10 loginform" style="height: 34px">
-							@Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control logintextbox", placeholder = "Password", style = "margin-bottom: 15px" })
+							@Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control logintextbox", placeholder = "Confirm password", style = "margin-bottom: 15px", type = "password" })
 						</div>
 					</div>
 					<div class="form-group" style="height: 34px">
@@ -39,7 +38,6 @@
 					</div>
 				}
 			</section>
-		</form>
 	</div>
 </div>
 @section Scripts {
