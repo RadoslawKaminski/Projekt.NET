@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Prymous @ViewBag.Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		@Styles.Render("~/Content/css")
+		@Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<img src="/"/>
+			</div>
+				@using (Html.BeginForm("AkcjaSzukania", "KontrolerSzukania", FormMethod.Get, new { @style="display:inline"}))
+				{
+					<input type="text" name="searchtext" placeholder="Search..." maxlength="1000">
+					<input type="submit" value="Search">
+				}
+				@Html.Partial("_LoginPartial")
+		</div>
+	</div>
+		@RenderBody()
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>
