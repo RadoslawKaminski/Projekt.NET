@@ -136,6 +136,8 @@ h2 {
         .logintextbox:-ms-input-placeholder {
             color: #535353;
         }
+
+
 }
 @media screen and (min-width: 992px) {
     .loginform {
@@ -143,7 +145,7 @@ h2 {
         margin-left: 25.0313px;
     }
 }
-#intrheader {
+.intrheader {
     background-image: url("img/intrheadbg.png");
     height: 200px;
     border-top: 1px white solid;
@@ -153,6 +155,7 @@ h2 {
     font-size: 36px;
     font-family: 'Arima Madurai', cursive;
 }
+
 
 #intr1 {
     background-image: url("img/whatisbg.jpg");
@@ -178,10 +181,21 @@ h2 {
     background-color:rgba(255, 255, 255, 0.8) ;
 }
 
+#wiheader{
+
+    height: 300px;
+    background-image: url(img/msp16.jpg);
+     background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    text-align: center;
+}
+
+
 
 
 @media screen and (max-width: 768px) {
-    #intrheader {
+    .intrheader {
         height: 150px;
         line-height: 150px;
         font-size: 18px;
@@ -195,14 +209,7 @@ h2 {
 }
 
 @media screen and (max-width: 350px) {
-    #intrheader {
+    .intrheader {
         font-size: 13px;
     }
-}
-
-
-
-#wiheader{
-    background-color: red;
-
 }

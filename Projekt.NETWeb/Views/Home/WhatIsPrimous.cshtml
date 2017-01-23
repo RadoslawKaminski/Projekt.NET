@@ -1,17 +1,18 @@
-﻿
-@using Projekt.NETWeb.Models
+﻿@using Projekt.NETWeb.Models
+@model LoginViewModel
 @{
-    ViewBag.Title = "What Is Primous?";
+    ViewBag.Title = "What is Primous";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-<div class="container-fluid">
 
-    <div id="wiheader"> test</div>
-    Hello
+    <div id="wiheader">
 
 
+    </div>
 
-</div>
+<div class="intrheader">We're pretty sure you heard about social networks.</div>
 
-
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

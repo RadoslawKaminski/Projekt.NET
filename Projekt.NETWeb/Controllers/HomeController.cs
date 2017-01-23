@@ -29,7 +29,6 @@ namespace Projekt.NETWeb.Controllers
 
         public ActionResult WhatIsPrimous()
         {
-            ViewBag.Message = "Learn more about Primous.";
             return View();
         }
     }
