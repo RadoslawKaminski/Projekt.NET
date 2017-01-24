@@ -1,3 +1,6 @@
+ /* Some background patterns from subtlepatterns.com */
+
+
 body {
     margin: 0px;
     padding: 0px;
@@ -152,7 +155,7 @@ h2 {
     text-align: center;
     line-height: 200px;
     color: white;
-    font-size: 36px;
+    font-size: 28px;
     font-family: 'Arima Madurai', cursive;
 }
 
@@ -167,6 +170,42 @@ h2 {
     padding: 30px;
 }
 
+#intr2
+{
+  background-image: url("img/intr2bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 300px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+#intr3
+{
+  background-image: url("img/intr3bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 600px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+#intr4
+{
+  background-image: url("img/whatisbg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 600px;
+    text-align: center;
+    padding: 30px;
+
+}
+
 #intr1in{
     background-color:rgba(49, 49, 49, 0.8) ;
     color: white;
@@ -179,6 +218,42 @@ h2 {
 {
     font-size: 13px;
     background-color:rgba(255, 255, 255, 0.8) ;
+}
+
+#mainintr
+{
+    background-image: url(img/mainintrbg.png);
+    height: 500px;
+
+}
+
+
+
+#mainintrleft
+{
+    height: 500px;
+    float: left;
+    background-color: rgba(255, 255, 255,0.6);
+ 
+ 
+}
+
+#mainintrright
+{
+    height: 500px;
+    float: left;
+     background-color: rgba(255, 255, 255,0.6);
+}
+
+#mainintrleft:hover
+{
+        background-color: rgba(255, 255, 255,0.7);
+
+}
+#mainintrright:hover
+{
+        background-color: rgba(255, 255, 255,0.7);
+
 }
 
 #wiheader{
@@ -206,10 +281,32 @@ h2 {
         height: 330px;
     }
 
+    #intr2
+    {
+        height: 250px;
+    }
+      #intr3
+    {
+        height: 250px;
+    }
+        #intr4
+    {
+        height: 250px;
+    }
+   
+
 }
 
 @media screen and (max-width: 350px) {
     .intrheader {
         font-size: 13px;
     }
+}
+
+@media screen and (max-width: 992px) {
+        #mainintr
+    {
+        height: 1000px;
+    }
+
 }
