@@ -25,6 +25,7 @@ namespace Projekt.NETWeb.Controllers
 
             return View();
         }
+        
         public ActionResult Wall()
         {
             var ViewModel = new WallViewModel
@@ -58,6 +59,11 @@ namespace Projekt.NETWeb.Controllers
                     return false;
             }
             return false;
+        }
+
+        public ActionResult WhatIsPrimous()
+        {
+            return View();
         }
     }
 }
