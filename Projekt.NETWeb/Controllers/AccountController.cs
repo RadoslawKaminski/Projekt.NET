@@ -82,7 +82,12 @@ namespace Projekt.NETWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        if (returnUrl != null)
+                            return RedirectToLocal(returnUrl);
+                        else
+                            return RedirectToAction("Wall", "Home");
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -395,7 +400,7 @@ namespace Projekt.NETWeb.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

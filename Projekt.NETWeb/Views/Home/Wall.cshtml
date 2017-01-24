@@ -1,5 +1,4 @@
 ﻿@using Projekt.NETWeb.Models
-@model WallViewModel
 @{
 	ViewBag.Title = "";
 	Layout = "~/Views/Shared/_LayoutMain.cshtml";
@@ -24,34 +23,13 @@
 	{
 		<h1>Welcome Admin. You are an Admin</h1>
 		<h3>
-			<li>@Html.ActionLink("Admin Page", "Index", "Admin")</li>
+			@Html.ActionLink("Admin Page", "Index", "Admin")
 		</h3>
 	}
 	<div class="createpost">
-		@using (Html.BeginForm("Action", "Controller", FormMethod.Get))
-		{
-			<div class="postAddTextBox">
-				<input type="text" placeholder="Write something..." maxlength="1000" style="width: 70%; height: 60px">
-			</div>
-			<div class="SubmitPostAddButton">
-				<input type="submit" value="Submit" class="btn btn-success">
-			</div>
-		}
+		@Html.Action("CreatePost");
 	</div>
-	@if (Model.TotalCount > 0)
-	{
-		foreach (var post in Model.Posts)
-		{
-			Html.RenderPartial("_Post", post);
-		}
-	}
-	else
-	{
-		<p>
-			There is nothing here yet<br />
-			Go and add something!
-		</p>
-	}
+	@Html.Action("ViewPosts");
 </div>
 <div class="col-md-2">
 	<p>
