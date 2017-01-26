@@ -18,18 +18,21 @@
 		for enjoyable, agile development.
 	</p>
 </div>
-<div class="col-md-8">
-	@if (ViewBag.IsAdmin == "Yes")
+<div class="col-md-8" style="background-color: #ee7c27; padding-top:20px">
+	@if (User.Identity.IsAuthenticated)
 	{
+		if (ViewBag.IsAdmin == "Yes")
+		{
 		<h1>Welcome Admin. You are an Admin</h1>
 		<h3>
 			@Html.ActionLink("Admin Page", "Index", "Admin")
 		</h3>
+		}
 	}
 	<div class="createpost">
-		@Html.Action("CreatePost");
+		@Html.Action("CreatePost")
 	</div>
-	@Html.Action("ViewPosts");
+	@Html.Action("ViewPosts")
 </div>
 <div class="col-md-2">
 	<p>

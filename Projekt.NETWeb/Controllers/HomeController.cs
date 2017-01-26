@@ -2,6 +2,11 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Projekt.NETWeb.Models;
 using System.Data.Entity;
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -47,18 +52,15 @@ namespace Projekt.NETWeb.Controllers
             }
             return View();
         }
-        public PartialViewResult CreatePost(Post post)
+        public PartialViewResult CreatePost()
         {
             return PartialView("_CreatePostPartial", new Post());
         }
-        // POST: Home/CreatePostPost
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreatePostPost([Bind(Include = "PostContent")] Post post)
+        public async Task<ActionResult> CreatePost([Bind(Include = "PostContent")] Post post)
         {
-
             post.DateCreated = System.DateTime.Now;
             if (ModelState.IsValid)
             {
@@ -69,11 +71,85 @@ namespace Projekt.NETWeb.Controllers
 
             return View("Wall", post);
         }
+
         public PartialViewResult ViewPosts()
         {
             return PartialView("_ViewPostsPartial", db.Posts);
         }
 
+        public async Task<ActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = await db.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+        public async Task<ActionResult> EditPost(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = await db.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditPost([Bind(Include = "PostID, PostContent")] Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                post.DateCreated = System.DateTime.Now;
+                db.Entry(post).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+                return RedirectToAction("Wall");
+            }
+            return View(post);
+        }
+
+        public async Task<ActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Post post = await db.Posts.FindAsync(id);
+            if (post == null)
+            {
+                return HttpNotFound();
+            }
+            return View(post);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeletePost(int id)
+        {
+            Post post = await db.Posts.FindAsync(id);
+            db.Posts.Remove(post);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Wall");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
         public bool isAdminUser()
         {
             if (User.Identity.IsAuthenticated)

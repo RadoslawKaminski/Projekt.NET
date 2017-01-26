@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace Projekt.NETWeb.Models
@@ -10,9 +12,8 @@ namespace Projekt.NETWeb.Models
     public class Like
     {
         public int LikeID { get; set; }
-        public virtual int PostID { get; set; }
         public virtual Post Post { get; set; }
-        public virtual ApplicationUser LikedByMembershipUser { get; set; }
+        public virtual ApplicationUser LikedBy { get; set; }
     }
 
     public class Post

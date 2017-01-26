@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 namespace Projekt.NETWeb.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         // GET: Admin
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -26,9 +26,7 @@ namespace Projekt.NETWeb.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ApplicationDbContext context = new ApplicationDbContext();
-            var Roles = context.Roles.ToList();
-            return View(Roles);
+            return View();
         }
         public bool isAdminUser()
         {
