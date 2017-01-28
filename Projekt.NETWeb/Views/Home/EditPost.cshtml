@@ -13,6 +13,8 @@
 
 	<div class="form-horizontal">
 		@Html.HiddenFor(model => model.PostID)
+		@Html.HiddenFor(model => model.DateCreated)
+		@Html.HiddenFor(model => model.UserName)
 		<div class="form-group">
 			<div class="col-md-10">
 				@Html.TextAreaFor(model => model.PostContent, new { htmlAttributes = new { @class = "form-control" } })	

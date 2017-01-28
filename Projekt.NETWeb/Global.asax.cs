@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using Projekt.NETWeb.Models;
+using System.Data.Entity;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
@@ -8,6 +10,7 @@ namespace Projekt.NETWeb
     {
         protected void Application_Start()
         {
+            Database.SetInitializer<ApplicationDbContext>(null);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

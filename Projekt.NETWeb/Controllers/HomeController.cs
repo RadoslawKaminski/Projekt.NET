@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Projekt.NETWeb.Models;
 using System.Data.Entity;
 using System.Data.Entity.Core;
@@ -8,13 +9,26 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Projekt.NETWeb.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationUserManager _userManager = null;
         ApplicationDbContext db = new ApplicationDbContext();
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
         public ActionResult Index()
         {
             return View();
@@ -61,6 +75,16 @@ namespace Projekt.NETWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreatePost([Bind(Include = "PostContent")] Post post)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                post.UserName = User.Identity.GetUserName();
+            }
+            else
+            {
+                post.UserName = "Anonym";
+            }
+            post.Edited = false;
+            post.DateEdited = System.DateTime.Now;
             post.DateCreated = System.DateTime.Now;
             if (ModelState.IsValid)
             {
@@ -77,7 +101,7 @@ namespace Projekt.NETWeb.Controllers
             return PartialView("_ViewPostsPartial", db.Posts);
         }
 
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> FullPostView(int? id)
         {
             if (id == null)
             {
@@ -104,14 +128,17 @@ namespace Projekt.NETWeb.Controllers
             }
             return View(post);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditPost([Bind(Include = "PostID, PostContent")] Post post)
+        public async Task<ActionResult> EditPost([Bind(Include = "PostID, UserName, DateCreated, PostContent")] Post post)
         {
             if (ModelState.IsValid)
             {
-                post.DateCreated = System.DateTime.Now;
+                post.UserName = post.UserName;
+                post.Edited = true;
+                post.DateEdited = System.DateTime.Now;
+                post.DateCreated = post.DateCreated;
                 db.Entry(post).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Wall");
@@ -119,7 +146,7 @@ namespace Projekt.NETWeb.Controllers
             return View(post);
         }
 
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> DeletePostConfirm(int? id)
         {
             if (id == null)
             {
@@ -142,6 +169,7 @@ namespace Projekt.NETWeb.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Wall");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

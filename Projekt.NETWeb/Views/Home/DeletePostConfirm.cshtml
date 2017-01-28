@@ -1,0 +1,27 @@
+﻿@model Projekt.NETWeb.Models.Post
+
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h2>Are you sure you want to delete this post?</h2>
+<h3>This can not be undone!</h3>
+@using (Html.BeginForm("DeletePost", "Home", new { id = Model.PostID }, FormMethod.Post, new { role = "form" }))
+{
+	@Html.AntiForgeryToken()
+	<div class="form-horizontal">
+		@Html.HiddenFor(model => model.PostID)
+		<div class="form-group">
+			<div class="col-md-10">
+				@Html.ActionLink("Return","Wall","Home", new { @class = "btn button-default", style = "margin-right: 10px"})
+				<input type="submit" value="Delete" class="btn btn-danger" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-10">
+				@Html.TextAreaFor(model => model.PostContent, new { htmlAttributes = new { @class = "form-control", style = "border: none; border-radious: 15px; background-color: silver" } })	
+			</div>
+		</div>
+	</div>
+}

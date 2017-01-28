@@ -1,4 +1,5 @@
 ﻿@using Projekt.NETWeb.Models
+@using Microsoft.AspNet.Identity
 @model IEnumerable<Post>
 @if (Model.Any())
 {
@@ -9,18 +10,28 @@
 				<div class="postProfilePhoto" style="float:left">
 
 				</div>
-				<div class="postDateCreated" style="float:left">
+				<div class="postUserName" style="font-size: larger; font-weight: bold">
+					@Html.DisplayFor(modelItem => item.UserName)
+				</div>
+				<div class="postDateCreated">
 					@Html.DisplayFor(modelItem => item.DateCreated)
 				</div>
-				<div class="buttons" style="float:right">
-					@Html.ActionLink("Edit", "EditPost", new { id = item.PostID }, new { @class = "btn btn-default", style = "float: right" })
-
-					@using (Html.BeginForm("DeletePost", "Home", new { id = item.PostID }, FormMethod.Post, new { @style = "display:inline; float: right", role = "form" }))
-					{
-						@Html.AntiForgeryToken()
-						<input type="submit" value="Delete" class="btn btn-default" style="float: right" />
-					}
-				</div>
+				@if (item.Edited == true)
+				{
+					<div class="postDateEdited">
+						<p>Edited: @Html.DisplayFor(modelItem => item.DateEdited)</p>
+					</div>
+				}
+				@*Edytować i usuwać może tylko użytkownik, który dodał posta
+					co za tym idzie - anonim nie może*@
+				@if (item.UserName == User.Identity.GetUserName())
+				{
+					<div class="buttons" style="float:right">
+						@*Edycja i usuwanie jest na innej stronie, żeby możliwe było nie używanie js*@
+						@Html.ActionLink("Edit", "EditPost", new { id = item.PostID }, new { @class = "btn btn-default", style = "float: right" })
+						@Html.ActionLink("Delete", "DeletePostConfirm", new { id = item.PostID }, new { @class = "btn btn-default", style = "float: right" })
+					</div>
+				}
 				<div class="postContent" style="clear: both">
 					<pre style="background: none; border:none">@item.PostContent</pre>
 				</div>

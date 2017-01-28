@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Projekt.NETWeb.Models.Like">
-    <Position X="0.5" Y="1" Width="1.5" />
+    <Position X="0.5" Y="2" Width="1.5" />
     <Members>
       <Property Name="LikeID" Hidden="true" />
     </Members>
@@ -31,7 +31,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Projekt.NETWeb.Models.ApplicationUser">
-    <Position X="6.75" Y="1.5" Width="1.5" />
+    <Position X="6.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAADAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
