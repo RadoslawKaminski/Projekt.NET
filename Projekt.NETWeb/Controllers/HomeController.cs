@@ -131,7 +131,7 @@ namespace Projekt.NETWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditPost([Bind(Include = "PostID, UserName, DateCreated, PostContent")] Post post)
+        public async Task<ActionResult> EditPost([Bind(Include = "PostId, UserName, DateCreated, PostContent")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -186,10 +186,14 @@ namespace Projekt.NETWeb.Controllers
                 ApplicationDbContext context = new ApplicationDbContext();
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var s = UserManager.GetRoles(user.GetUserId());
-                if (s[0].ToString() == "Admin")
-                    return true;
-                else
-                    return false;
+                try
+                {
+                    if (s[0].ToString() == "Admin")
+                        return true;
+                    else
+                        return false;
+                } catch (System.Exception e)
+                { return false; }
             }
             return false;
         }

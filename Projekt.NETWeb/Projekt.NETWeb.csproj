@@ -233,9 +233,9 @@
     <Content Include="Views\Home\Wall.cshtml" />
     <Content Include="Views\Shared\_LayoutMain.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Home\_CreatePostPartial.cshtml" />
+    <Content Include="Views\Shared\_CreatePostPartial.cshtml" />
     <Content Include="Views\Home\EditPost.cshtml" />
-    <Content Include="Views\Home\_ViewPostsPartial.cshtml" />
+    <Content Include="Views\Shared\_ViewPostsPartial.cshtml" />
     <Content Include="Views\Home\DeletePostConfirm.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\WhatIsPrimous.cshtml" />
@@ -261,6 +261,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\UserWall\Wall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

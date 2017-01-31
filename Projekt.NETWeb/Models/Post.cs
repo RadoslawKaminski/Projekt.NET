@@ -11,14 +11,16 @@ namespace Projekt.NETWeb.Models
 {
     public class Like
     {
-        public int LikeID { get; set; }
+        [Key]
+        public int LikeIds { get; set; }
         public virtual Post Post { get; set; }
         public virtual ApplicationUser LikedBy { get; set; }
     }
 
     public class Post
     {
-        public int PostID  { get; set; }
+        [Key]
+        public int PostId  { get; set; }
         public string PostContent { get; set; }
         public DateTime? DateCreated { get; set; }
         public bool Edited { get; set; }

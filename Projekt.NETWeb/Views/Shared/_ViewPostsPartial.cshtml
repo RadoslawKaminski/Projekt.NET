@@ -16,20 +16,20 @@
 				<div class="postDateCreated">
 					@Html.DisplayFor(modelItem => item.DateCreated)
 				</div>
-				@if (item.Edited == true)
+				@if (item.Edited)
 				{
 					<div class="postDateEdited">
 						<p>Edited: @Html.DisplayFor(modelItem => item.DateEdited)</p>
 					</div>
 				}
-				@*Edytować i usuwać może tylko użytkownik, który dodał posta
+				@*Edytować i usuwać może tylko użytkownik, który dodał posta (albo admin)
 					co za tym idzie - anonim nie może*@
-				@if (item.UserName == User.Identity.GetUserName())
+				@if (item.UserName == User.Identity.GetUserName() || ViewBag.IsAdmin == "Yes")
 				{
 					<div class="buttons" style="float:right">
 						@*Edycja i usuwanie jest na innej stronie, żeby możliwe było nie używanie js*@
-						@Html.ActionLink("Edit", "EditPost", new { id = item.PostID }, new { @class = "btn btn-default", style = "float: right" })
-						@Html.ActionLink("Delete", "DeletePostConfirm", new { id = item.PostID }, new { @class = "btn btn-default", style = "float: right" })
+						@Html.ActionLink("Edit", "EditPost", new { id = item.PostId }, new { @class = "btn btn-default", style = "float: right" })
+						@Html.ActionLink("Delete", "DeletePostConfirm", new { id = item.PostId }, new { @class = "btn btn-default", style = "float: right" })
 					</div>
 				}
 				<div class="postContent" style="clear: both">
