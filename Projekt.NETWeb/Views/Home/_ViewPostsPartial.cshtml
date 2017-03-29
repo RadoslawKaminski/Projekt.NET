@@ -1,0 +1,35 @@
+﻿@using Projekt.NETWeb.Models
+@model IEnumerable<Post>
+	@if (Model.Any())
+	{
+<div class="posts">
+		@foreach (var item in Model)
+		{
+			<div class="post">
+				<div class="postProfilePhoto">
+
+				</div>
+				<div class="postContent">
+					@Html.DisplayFor(modelItem => item.PostContent)
+				</div>
+				<div class="postDateCreated">
+					@Html.DisplayFor(modelItem => item.DateCreated)
+				</div>
+				<div class="LikesCount">
+					Likes: @Html.DisplayFor(modelItem => item.LikesCount)
+				</div>
+				<div class="buttons">
+					@Html.ActionLink("Edit", "Edit", new { id = item.PostID })
+					@Html.ActionLink("Delete", "Delete", new { id = item.PostID })
+				</div>
+			</div>
+		}
+</div>
+	}
+	else
+	{
+		<h2>
+			There is nothing here yet<br />
+			Go and add something!
+		</h2>
+	}

@@ -17,13 +17,16 @@ namespace Projekt.NETWeb.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        ApplicationDbContext context;
 
         public AccountController()
         {
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
+            context = new ApplicationDbContext();
             UserManager = userManager;
             SignInManager = signInManager;
         }
@@ -57,7 +60,6 @@ namespace Projekt.NETWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -80,7 +82,12 @@ namespace Projekt.NETWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        if (returnUrl != null)
+                            return RedirectToLocal(returnUrl);
+                        else
+                            return RedirectToAction("Wall", "Home");
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -164,7 +171,7 @@ namespace Projekt.NETWeb.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Wall", "Home");
                 }
                 AddErrors(result);
             }
@@ -393,7 +400,7 @@ namespace Projekt.NETWeb.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

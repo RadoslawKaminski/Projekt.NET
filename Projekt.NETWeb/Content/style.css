@@ -4,6 +4,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    height: 5000px;
     position: relative;
 }
 
@@ -139,8 +140,6 @@ h2 {
         .logintextbox:-ms-input-placeholder {
             color: #535353;
         }
-
-
 }
 @media screen and (min-width: 992px) {
     .loginform {
@@ -148,7 +147,7 @@ h2 {
         margin-left: 25.0313px;
     }
 }
-.intrheader {
+#intrheader {
     background-image: url("img/intrheadbg.png");
     height: 200px;
     border-top: 1px white solid;
@@ -159,13 +158,13 @@ h2 {
     font-family: 'Arima Madurai', cursive;
 }
 
-
-#intr1 {
+#whatis {
     background-image: url("img/whatisbg.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
-    height: 800px;
+    height: 500px;
+    border-top: 1px white solid;
     text-align: center;
     padding: 30px;
 }
@@ -270,7 +269,7 @@ h2 {
 
 
 @media screen and (max-width: 768px) {
-    .intrheader {
+    #intrheader {
         height: 150px;
         line-height: 150px;
         font-size: 18px;
@@ -298,7 +297,7 @@ h2 {
 }
 
 @media screen and (max-width: 350px) {
-    .intrheader {
+    #intrheader {
         font-size: 13px;
     }
 }
