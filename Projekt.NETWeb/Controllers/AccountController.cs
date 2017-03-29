@@ -60,6 +60,11 @@ namespace Projekt.NETWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Wall", "Home");
+            }
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -71,6 +76,11 @@ namespace Projekt.NETWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Wall", "Home");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -147,6 +157,11 @@ namespace Projekt.NETWeb.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Wall", "Home");
+            }
+
             return View();
         }
 
@@ -157,6 +172,11 @@ namespace Projekt.NETWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Wall", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Login };

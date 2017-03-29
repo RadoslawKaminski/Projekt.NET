@@ -10,7 +10,6 @@ namespace Projekt.NETWeb.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "Projekt.NETWeb.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Projekt.NETWeb.Models.ApplicationDbContext context)
