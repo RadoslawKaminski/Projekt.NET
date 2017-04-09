@@ -1,0 +1,325 @@
+ /* Some background patterns from subtlepatterns.com */
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin: 0px;
+    padding: 0px;
+    height: 5000px;
+    position: relative;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    border-radius: 0px;
+}
+
+#loginouter {
+    width: 100%;
+    height: 580px;
+    background-image: url("img/loginbg.png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+}
+
+#logininner {
+    width: 99%;
+    height: 300px;
+    display: inline-block;
+    margin-top: 140px;
+    border-radius: 30px;
+    color: white;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.loginform {
+    width: 100% !important;
+    margin: auto;
+}
+
+.logintextbox {
+    background: none;
+    border: none;
+    border-bottom: solid white;
+}
+
+    .logintextbox::-webkit-input-placeholder {
+        color: #dbdbdb;
+    }
+
+    .logintextbox:-moz-placeholder {
+        color: #dbdbdb;
+    }
+
+    .logintextbox::-moz-placeholder {
+        color: #dbdbdb;
+    }
+
+    .logintextbox:-ms-input-placeholder {
+        color: #dbdbdb;
+    }
+
+.navbar-brand {
+    font-size: 13px;
+}
+
+@media screen and (min-width: 307px) {
+    #logininner {
+        width: 80%;
+        height: 300px;
+        display: inline-block;
+        margin-top: 140px;
+        border-radius: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .loginform {
+        width: 233.453px !important;
+    }
+
+    .navbar-brand {
+        font-size: 15px;
+    }
+
+    .checkbox {
+        color: white;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #logininner {
+        width: 550px;
+        height: 350px;
+        background: rgba(243, 243, 243, 0.65);
+        display: inline-block;
+        margin-top: 140px;
+        border-radius: 30px;
+        color: #333;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .loginform {
+        width: 233.453px !important;
+    }
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .checkbox {
+        color: #333;
+    }
+
+    .logintextbox {
+        background: white;
+        border: solid #808080 0.5px;
+    }
+
+        .logintextbox::-webkit-input-placeholder {
+            color: #535353;
+        }
+
+        .logintextbox:-moz-placeholder {
+            color: #535353;
+        }
+
+        .logintextbox::-moz-placeholder {
+            color: #535353;
+        }
+
+        .logintextbox:-ms-input-placeholder {
+            color: #535353;
+        }
+}
+@media screen and (min-width: 992px) {
+    .loginform {
+        width: 233.453px !important;
+        margin-left: 25.0313px;
+    }
+}
+#intrheader {
+    background-image: url("img/intrheadbg.png");
+    height: 200px;
+    border-top: 1px white solid;
+    text-align: center;
+    line-height: 200px;
+    color: white;
+    font-size: 28px;
+    font-family: 'Arima Madurai', cursive;
+}
+
+#whatis {
+    background-image: url("img/whatisbg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 500px;
+    border-top: 1px white solid;
+    text-align: center;
+    padding: 30px;
+}
+
+#intr2
+{
+  background-image: url("img/intr2bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 300px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+#intr3
+{
+  background-image: url("img/intr3bg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 600px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+#intr4
+{
+  background-image: url("img/whatisbg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 600px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+#intr1in{
+    background-color:rgba(49, 49, 49, 0.8) ;
+    color: white;
+    margin-top:100px;;
+    min-height: 250px;;
+  
+}
+
+#intr2in
+{
+    font-size: 13px;
+    background-color:rgba(255, 255, 255, 0.8) ;
+}
+
+#mainintr
+{
+    background-image: url(img/mainintrbg.png);
+    height: 500px;
+
+}
+
+
+
+#mainintrleft
+{
+    height: 500px;
+    float: left;
+    background-color: rgba(255, 255, 255,0.6);
+ 
+ 
+}
+
+#mainintrright
+{
+    height: 500px;
+    float: left;
+     background-color: rgba(255, 255, 255,0.6);
+}
+
+#mainintrleft:hover
+{
+        background-color: rgba(255, 255, 255,0.7);
+
+}
+#mainintrright:hover
+{
+        background-color: rgba(255, 255, 255,0.7);
+
+}
+
+#wiheader{
+
+    height: 300px;
+    background-image: url(img/msp16.jpg);
+     background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    #intrheader {
+        height: 150px;
+        line-height: 150px;
+        font-size: 18px;
+    }
+
+    #intr1
+    {
+        height: 330px;
+    }
+
+    #intr2
+    {
+        height: 250px;
+    }
+      #intr3
+    {
+        height: 250px;
+    }
+        #intr4
+    {
+        height: 250px;
+    }
+   
+
+}
+
+@media screen and (max-width: 350px) {
+    #intrheader {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+        #mainintr
+    {
+        height: 1000px;
+    }
+
+}

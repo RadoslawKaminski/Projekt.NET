@@ -1,0 +1,45 @@
+﻿@using Projekt.NETStrona.Models
+@model RegisterViewModel
+@{
+	ViewBag.Title = "Register";
+	Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div id="loginouter">
+	<div id="logininner">
+			<section style="display: inline-block;">
+				@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+				{
+					@Html.AntiForgeryToken()
+					<h2>Sign up to Prymous</h2>
+					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+					@Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+					<div class="form-group" style="height: 34px">
+						<div class="col-md-10 loginform" style="height: 34px">
+							@Html.TextBoxFor(m => m.Login, new { @class = "form-control logintextbox", placeholder = "Username", style = "margin - bottom: 15px" })
+						</div>
+					</div>
+					@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+					<div class="form-group" style="height: 34px">
+						<div class="col-md-10 loginform" style="height: 34px">
+							@Html.TextBoxFor(m => m.Password, new { @class = "form-control logintextbox", placeholder = "Password", style = "margin-bottom: 15px", type="password" })
+						</div>
+					</div>
+					@Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+					<div class="form-group" style="height: 34px">
+						<div class="col-md-10 loginform" style="height: 34px">
+							@Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control logintextbox", placeholder = "Confirm password", style = "margin-bottom: 15px", type = "password" })
+						</div>
+					</div>
+					<div class="form-group" style="height: 34px">
+						<div class="col-md-10 loginform" style="height: 34px">
+							@Html.ActionLink("Log in", "Login", "Account", new { @class = "btn btn-default" })
+							<input type="submit" value="Sign up" class="btn btn-success" />
+						</div>
+					</div>
+				}
+			</section>
+	</div>
+</div>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

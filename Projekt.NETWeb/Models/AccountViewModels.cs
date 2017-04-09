@@ -1,5 +1,4 @@
-﻿using Projekt.NETWeb.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Projekt.NETWeb.Models
@@ -67,11 +66,13 @@ namespace Projekt.NETWeb.Models
         [Required()]
         [Display(Name = "Username")]
         public string Login { get; set; }
+
         [Required()]
         [StringLength(1000, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
         [Required()]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
